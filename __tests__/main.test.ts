@@ -1,27 +1,41 @@
-import {wait} from '../src/wait'
-import * as process from 'process'
-import * as cp from 'child_process'
+import * as os from 'os'
 import * as path from 'path'
+import * as semver from '../src/main'
+import * as core from '@actions/core'
+import { defaultCoreCipherList } from 'constants'
 
-test('throws invalid number', async () => {
-  const input = parseInt('foo', 10)
-  await expect(wait(input)).rejects.toThrow('milliseconds not a number')
-})
+const testEnvVars = {
+  'my var': '',
+  'special char var \r\n];': '',
+  'my var2': '',
+  'my secret': '',
+  'special char secret \r\n];': '',
+  'my secret2': '',
+  PATH: `path1${path.delimiter}path2`,
 
-test('wait 500 ms', async () => {
-  const start = new Date()
-  await wait(500)
-  const end = new Date()
-  var delta = Math.abs(end.getTime() - start.getTime())
-  expect(delta).toBeGreaterThan(450)
-})
+  // Set inputs
+  INPUT_SOLUTION: 'src/Math.sln',
+  INPUT_MISSING: '',
+  'INPUT_SPECIAL_CHARS_\'\t"\\': '\'\t"\\ response ',
+  INPUT_MULTIPLE_SPACES_VARIABLE: 'I have multiple spaces',
 
-// shows how the runner will run a javascript action with env / stdout protocol
-test('test runs', () => {
-  process.env['INPUT_MILLISECONDS'] = '500'
-  const ip = path.join(__dirname, '..', 'lib', 'main.js')
-  const options: cp.ExecSyncOptions = {
-    env: process.env
-  }
-  console.log(cp.execSync(`node ${ip}`, options).toString())
+  // Save inputs
+  STATE_TEST_1: 'state_val'
+}
+
+describe('@actions/semver', () => {
+  beforeEach(() => {
+    for (const key in testEnvVars)
+      process.env[key] = testEnvVars[key as keyof typeof testEnvVars]
+
+    process.stdout.write = jest.fn()
+  })
+
+  afterEach(() => {
+    for (const key in testEnvVars) Reflect.deleteProperty(testEnvVars, key)
+  })
+
+  it('gets an input', () => {
+    expect(core.getInput('solution')).toBe('src/Math.sln');
+  })
 })

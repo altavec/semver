@@ -1,6 +1,6 @@
 # GitHub Action for 
 
-[![GitHub Actions status](https://github.com/MondoPower/semantic-versioning/workflows/CI/PR/badge.svg)](https://github.com/MondoPower/semantic-versioning/actions)
+[![GitHub Actions status](https://github.com/MondoPower/semantic-versioning/workflows/build-test/badge.svg)](https://github.com/MondoPower/semantic-versioning/actions)
 
 This action installs the CLI for [Mondo.SemanticVersioning](https://github.com/MondoPower/Mondo.SemanticVersioning)
 and exposes version data from it as action outputs.

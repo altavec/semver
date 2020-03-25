@@ -2,7 +2,7 @@ import * as os from 'os'
 import * as path from 'path'
 import * as semver from '../src/main'
 import * as core from '@actions/core'
-import { defaultCoreCipherList } from 'constants'
+import {defaultCoreCipherList} from 'constants'
 
 const testEnvVars = {
   'my var': '',
@@ -36,6 +36,6 @@ describe('@actions/semver', () => {
   })
 
   it('gets an input', () => {
-    expect(core.getInput('solution')).toBe('src/Math.sln');
+    expect(core.getInput('solution')).toBe('src/Math.sln')
   })
 })

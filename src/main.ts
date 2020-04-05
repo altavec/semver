@@ -7,12 +7,7 @@ import {Inputs} from './settings'
 async function run(): Promise<void> {
   try {
     // install semver
-    const installArgs = [
-      'tool',
-      'install',
-      '-g',
-      'mondo.semanticversioning.teamcity'
-    ]
+    const installArgs = ['tool', 'install', '-g', 'mondo.semanticversioning']
     if (Inputs.toolVersion) {
       installArgs.push('--version', Inputs.toolVersion)
     }

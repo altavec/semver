@@ -983,7 +983,7 @@ function run() {
                 'tool',
                 'install',
                 '-g',
-                'mondo.semanticversioning.teamcity'
+                'mondo.semanticversioning'
             ];
             if (settings_1.Inputs.toolVersion) {
                 installArgs.push('--version', settings_1.Inputs.toolVersion);

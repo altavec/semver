@@ -979,12 +979,7 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             // install semver
-            const installArgs = [
-                'tool',
-                'install',
-                '-g',
-                'mondo.semanticversioning'
-            ];
+            const installArgs = ['tool', 'install', '-g', 'mondo.semanticversioning'];
             if (settings_1.Inputs.toolVersion) {
                 installArgs.push('--version', settings_1.Inputs.toolVersion);
             }

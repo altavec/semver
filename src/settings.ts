@@ -24,6 +24,12 @@ export class Inputs {
 
   static get versionSuffix(): string | undefined {
     const result = core.getInput('versionSuffix')
-    return result === '' || result === null ? undefined : result
+    if (result === '' || result === null) {
+      return undefined
+    }
+
+    return result.startsWith('refs/')
+      ? result.replace('refs/heads/', '')
+      : result
   }
 }

@@ -1,10 +1,18 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Ross King'
+description: 'Installs and runs the Mondo SemanticVersion tool'
+author: 'Mondo Power'
 inputs:
-  myInput:              # change this
-    description: 'input description here'
-    default: 'default value if applicable'
+  source:
+    description: 'The NuGet source that contains the tool as well as the packges to be versioned'
+  toolVersion:
+    description: 'The version of the semantic version dotnet CLI tool to install and use. If not specified, the default is the latest stable version'
+  solution:
+    description: 'The path to the solution'
+  isDefaultBranch:
+    description: 'Whether the current branch is the default branch. Forces there to be no version suffix. This overrides versionSuffix'
+    default: false
+  versionSuffix:
+    description: 'Sets the pre-release value. If none is specified, the pre-release from the previous version is used.'
 runs:
   using: 'node12'
   main: 'dist/index.js'

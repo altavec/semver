@@ -21,9 +21,6 @@ async function run(): Promise<void> {
       throw new Error('dotnet tool install failed.')
     }
 
-    // add .dotnet/tools to the path
-    core.addPath(path.join(os.homedir(), '.dotnet', 'tools'))
-
     // Collect a JSON string of all the version properties.
     const args = ['diff', 'solution']
     if (Inputs.solution) {
@@ -53,8 +50,14 @@ async function run(): Promise<void> {
       '--nologo'
     )
 
+    const toolPath = path.join(
+      os.homedir(),
+      '.dotnet',
+      'tools',
+      'dotnet-semver'
+    )
     let versionJson = ''
-    await exec('dotnet-semver', args, {
+    await exec(toolPath, args, {
       listeners: {
         stdout: (data: Buffer) => {
           versionJson += data.toString()

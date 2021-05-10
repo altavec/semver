@@ -1,22 +1,17 @@
 import {Inputs} from '../src/settings'
 
-const testEnvVars = {
-  INPUT_VERSIONSUFFIX: 'refs/heads/develop'
-}
-
 describe('@actions/semver', () => {
   beforeEach(() => {
-    for (const key in testEnvVars)
-      process.env[key] = testEnvVars[key as keyof typeof testEnvVars]
-
     process.stdout.write = jest.fn()
   })
 
-  afterEach(() => {
-    for (const key in testEnvVars) Reflect.deleteProperty(testEnvVars, key)
+  it('gets the correct branch name', () => {
+    process.env['INPUT_VERSIONSUFFIX'] = 'refs/heads/develop'
+    expect(Inputs.versionSuffix).toBe('develop')
   })
 
-  it('gets the correct branch name', () => {
+  it('gets the correct branch name ACT', () => {
+    process.env['INPUT_VERSIONSUFFIX'] = '\\refs\\heads\\develop'
     expect(Inputs.versionSuffix).toBe('develop')
   })
 })

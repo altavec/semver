@@ -23,13 +23,21 @@ export class Inputs {
   }
 
   static get versionSuffix(): string | undefined {
-    const result = core.getInput('versionSuffix')
+    let result = core.getInput('versionSuffix')
     if (result === '' || result === null) {
       return undefined
     }
 
-    return result.startsWith('refs/')
-      ? result.replace('refs/heads/', '')
-      : result
+    if (result.startsWith('refs/'))
+    {
+      result = result.replace('refs/heads/', '')
+    }
+
+    if (result.startsWith('\\refs'))
+    {
+      result = result.replace('\\refs\\heads\\', '')
+    }
+
+    return result;
   }
 }

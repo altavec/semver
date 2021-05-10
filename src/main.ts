@@ -31,6 +31,7 @@ async function run(): Promise<void> {
       args.push('--no-version-suffix')
     }
 
+    core.setFailed(core.getInput('versionSuffix'))
     if (Inputs.versionSuffix) {
       args.push('--version-suffix', Inputs.versionSuffix)
     }

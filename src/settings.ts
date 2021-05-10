@@ -28,16 +28,12 @@ export class Inputs {
       return undefined
     }
 
-    if (result.startsWith('refs/'))
-    {
+    if (result.startsWith('refs/')) {
       result = result.replace('refs/heads/', '')
-    }
-
-    if (result.startsWith('\\refs'))
-    {
+    } else if (result.startsWith('\\refs\\')) {
       result = result.replace('\\refs\\heads\\', '')
     }
 
-    return result;
+    return result
   }
 }

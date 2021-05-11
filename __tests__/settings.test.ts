@@ -10,8 +10,13 @@ describe('@actions/semver', () => {
     expect(Inputs.versionSuffix).toBe('develop')
   })
 
-  it('gets the correct branch name ACT', () => {
+  it('gets the correct branch name with back slash', () => {
     process.env['INPUT_VERSIONSUFFIX'] = '\\refs\\heads\\develop'
     expect(Inputs.versionSuffix).toBe('develop')
+  })
+
+  it('gets the correct branch name from a feature branch', () => {
+    process.env['INPUT_VERSIONSUFFIX'] = 'refs/heads/feature/action'
+    expect(Inputs.versionSuffix).toBe('feature+action')
   })
 })

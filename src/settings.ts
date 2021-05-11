@@ -34,6 +34,12 @@ export class Inputs {
       result = result.replace('\\refs\\heads\\', '')
     }
 
+    if (result.includes('/')) {
+      result = result.replace('/', '+')
+    } else if (result.includes('\\')) {
+      result = result.replace('\\', '+')
+    }
+
     return result
   }
 }

@@ -36,6 +36,7 @@ All inputs are optional.
     solution: ${{ env.SOLUTION_PATH }}
     isDefaultBranch: false
     versionSuffix: ${{ github.ref }}
+    increment: ReleaseLabel
 - run: echo 'Version: ${{ steps.semver.outputs.Version }}'
 ```
 

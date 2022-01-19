@@ -1,8 +1,8 @@
 import * as core from '@actions/core'
-import {exec} from '@actions/exec'
 import * as os from 'os'
 import * as path from 'path'
 import {Inputs} from './settings'
+import {exec} from '@actions/exec'
 
 async function run(): Promise<void> {
   try {
@@ -37,6 +37,10 @@ async function run(): Promise<void> {
 
     if (Inputs.source) {
       args.push('--source', Inputs.source)
+    }
+
+    if (Inputs.increment) {
+      args.push('--increment', Inputs.increment)
     }
 
     args.push(

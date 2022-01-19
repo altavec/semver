@@ -19,4 +19,9 @@ describe('@actions/semver', () => {
     process.env['INPUT_VERSIONSUFFIX'] = 'refs/heads/feature/action'
     expect(Inputs.versionSuffix).toBe('feature+action')
   })
+
+  it('gets the correct increment', () => {
+    process.env['INPUT_INCREMENT'] = 'ReleaseLabel'
+    expect(Inputs.increment).toBe('ReleaseLabel')
+  })
 })

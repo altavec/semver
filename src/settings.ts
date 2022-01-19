@@ -42,4 +42,9 @@ export class Inputs {
 
     return result
   }
+
+  static get increment(): string | undefined {
+    const result = core.getInput('increment')
+    return result === '' || result === null ? undefined : result
+  }
 }

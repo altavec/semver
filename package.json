@@ -2,7 +2,7 @@
   "name": "semver-action",
   "version": "0.0.0",
   "private": true,
-  "description": "GitHub action for Mondo.SemanticVersioning",
+  "description": "GitHub action for Altavec.SemanticVersioning",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MondoPower/semver.git"
+    "url": "git+https://github.com/altavec/semver.git"
   },
   "keywords": [
     "actions",
     "node",
     "setup"
   ],
-  "author": "MondoPower",
+  "author": "Altavec",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.6.0",

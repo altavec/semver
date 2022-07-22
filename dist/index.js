@@ -72,7 +72,7 @@ function run() {
             if (settings_1.Inputs.increment) {
                 args.push('--increment', settings_1.Inputs.increment);
             }
-            args.push('--output', 'Json', '--direct-download', '--package-id-regex', 'Mondo', '--package-id-replace', 'GeomaticTechnologies', '--nologo');
+            args.push('--output', 'Json', '--direct-download', '--package-id-regex', settings_1.Inputs.packageIdRegex, '--package-id-replace', settings_1.Inputs.packageIdReplace, '--nologo');
             const toolPath = path.join(os.homedir(), '.dotnet', 'tools', 'dotnet-semver');
             let versionJson = '';
             yield (0, exec_1.exec)(toolPath, args, {
@@ -166,6 +166,14 @@ class Inputs {
     static get increment() {
         const result = core.getInput('increment');
         return result === '' || result === null ? undefined : result;
+    }
+    static get packageIdRegex() {
+        const result = core.getInput('packageIdRegex');
+        return result === '' || result === null ? 'Mondo' : result;
+    }
+    static get packageIdReplace() {
+        const result = core.getInput('packageIdReplace');
+        return result === '' || result === null ? 'GeomaticTechnologies' : result;
     }
 }
 exports.Inputs = Inputs;

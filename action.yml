@@ -1,6 +1,6 @@
-name: 'Ross King'
+name: 'semver'
 description: 'Installs and runs the Mondo SemanticVersion tool'
-author: 'Mondo Power'
+author: 'Altavec'
 inputs:
   source:
     description: 'The NuGet source that contains the tool as well as the packges to be versioned.'
@@ -16,6 +16,12 @@ inputs:
   increment:
     description: 'Sets the location for the version increment. Can be either Patch to increment the patch value, or ReleaseLabel to increment the release label. Only valid for version >= 1.0.82'
     default: 'Patch'
+  packageIdRegex:
+    description: 'The regular expression to match in the package id'
+    default: 'Mondo'
+  packageIdReplace:
+    description: 'The text used to replace the match from packageIdRegex'
+    default: 'GeomaticTechnologies'
 runs:
   using: 'node12'
   main: 'dist/index.js'

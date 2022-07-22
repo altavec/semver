@@ -47,4 +47,14 @@ export class Inputs {
     const result = core.getInput('increment')
     return result === '' || result === null ? undefined : result
   }
+
+  static get packageIdRegex(): string {
+    const result = core.getInput('packageIdRegex')
+    return result === '' || result === null ? 'Mondo' : result
+  }
+
+  static get packageIdReplace(): string {
+    const result = core.getInput('packageIdReplace')
+    return result === '' || result === null ? 'GeomaticTechnologies' : result
+  }
 }

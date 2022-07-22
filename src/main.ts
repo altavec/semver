@@ -48,9 +48,9 @@ async function run(): Promise<void> {
       'Json',
       '--direct-download',
       '--package-id-regex',
-      'Mondo',
+      Inputs.packageIdRegex,
       '--package-id-replace',
-      'GeomaticTechnologies',
+      Inputs.packageIdReplace,
       '--nologo'
     )
 

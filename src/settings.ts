@@ -50,11 +50,11 @@ export class Inputs {
 
   static get packageIdRegex(): string {
     const result = core.getInput('packageIdRegex')
-    return result === '' || result === null ? 'Mondo' : result
+    return result === '' || result === null ? 'Altavec' : result
   }
 
   static get packageIdReplace(): string {
     const result = core.getInput('packageIdReplace')
-    return result === '' || result === null ? 'GeomaticTechnologies' : result
+    return result === '' || result === null ? 'Mondo' : result
   }
 }

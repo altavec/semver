@@ -1,5 +1,5 @@
 name: 'semver'
-description: 'Installs and runs the Mondo SemanticVersion tool'
+description: 'Installs and runs the Altavec SemanticVersion tool'
 author: 'Altavec'
 inputs:
   source:
@@ -18,10 +18,10 @@ inputs:
     default: 'Patch'
   packageIdRegex:
     description: 'The regular expression to match in the package id'
-    default: 'Mondo'
+    default: 'Altavec'
   packageIdReplace:
     description: 'The text used to replace the match from packageIdRegex'
-    default: 'GeomaticTechnologies'
+    default: 'Mondo'
 runs:
   using: 'node12'
   main: 'dist/index.js'

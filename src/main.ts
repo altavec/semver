@@ -7,7 +7,7 @@ import {exec} from '@actions/exec'
 async function run(): Promise<void> {
   try {
     // install semver
-    const installArgs = ['tool', 'install', '-g', 'mondo.semanticversioning']
+    const installArgs = ['tool', 'install', '-g', 'altavec.semanticversioning']
     if (Inputs.toolVersion) {
       installArgs.push('--version', Inputs.toolVersion)
     }

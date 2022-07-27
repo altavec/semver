@@ -44,7 +44,7 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             // install semver
-            const installArgs = ['tool', 'install', '-g', 'mondo.semanticversioning'];
+            const installArgs = ['tool', 'install', '-g', 'altavec.semanticversioning'];
             if (settings_1.Inputs.toolVersion) {
                 installArgs.push('--version', settings_1.Inputs.toolVersion);
             }
@@ -169,11 +169,11 @@ class Inputs {
     }
     static get packageIdRegex() {
         const result = core.getInput('packageIdRegex');
-        return result === '' || result === null ? 'Mondo' : result;
+        return result === '' || result === null ? 'Altavec' : result;
     }
     static get packageIdReplace() {
         const result = core.getInput('packageIdReplace');
-        return result === '' || result === null ? 'GeomaticTechnologies' : result;
+        return result === '' || result === null ? 'Mondo' : result;
     }
 }
 exports.Inputs = Inputs;

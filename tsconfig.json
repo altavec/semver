@@ -7,7 +7,8 @@
     "strict": true,                           /* Enable all strict type-checking options. */
     "useUnknownInCatchVariables": false,      /* Enable to report errors on unused variables. */
     "noImplicitAny": true,                    /* Raise error on expressions and declarations with an implied 'any' type. */
-    "esModuleInterop": true                   /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+    "esModuleInterop": true,                  /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+    "forceConsistentCasingInFileNames": true
   },
   "exclude": ["node_modules", "**/*.test.ts"]
 }

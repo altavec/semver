@@ -10,7 +10,7 @@ inputs:
     description: 'The path to the solution'
   isDefaultBranch:
     description: 'Whether the current branch is the default branch. Forces there to be no version suffix. This overrides versionSuffix.'
-    default: false
+    default: 'false'
   versionSuffix:
     description: 'Sets the pre-release value. If none is specified, the pre-release from the previous version is used.'
   increment:
@@ -23,5 +23,5 @@ inputs:
     description: 'The text used to replace the match from packageIdRegex'
     default: 'Mondo'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'

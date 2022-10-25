@@ -25,19 +25,19 @@
   "author": "Altavec",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.9.1",
-    "@actions/exec": "^1.1.0"
+    "@actions/core": "^1.10.0",
+    "@actions/exec": "^1.1.1"
   },
   "devDependencies": {
-    "@types/jest": "^27.4.0",
+    "@types/jest": "^27.5.2",
     "@types/node": "^16.11.7",
-    "@typescript-eslint/parser": "^5.10.0",
-    "@vercel/ncc": "^0.33.1",
-    "eslint-plugin-github": "^4.3.5",
+    "@typescript-eslint/parser": "^5.41.0",
+    "@vercel/ncc": "^0.33.4",
+    "eslint-plugin-github": "^4.4.0",
     "eslint-plugin-jest": "^25.7.0",
     "js-yaml": "^4.1.0",
     "prettier": "2.5.1",
-    "ts-jest": "^27.1.3",
-    "typescript": "^4.5.4"
+    "ts-jest": "^27.1.5",
+    "typescript": "^4.8.4"
   }
 }

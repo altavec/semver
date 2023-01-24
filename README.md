@@ -13,6 +13,7 @@ All inputs are optional.
 | Name               | Default                | Description                                                  |
 | ------------------ | ---------------------- | ------------------------------------------------------------ |
 | `source`           | null                   | The NuGet source that contains the tool as well as the packges to be versioned. |
+| `configfile`       | null                   | The NuGet configuration file to use. |
 | `toolVersion`      | latest stable          | The version of the semantic version dotnet CLI tool to install and use. If not specified, the default is the latest stable version. |
 | `solution`         | Repo root              | The path to the solution.                                    |
 | `isDefaultBranch`  | false                  | Whether the current branch is the default branch. Forces there to be no version suffix. This overrides `versionSuffix`. |
@@ -38,6 +39,7 @@ All inputs are optional.
   id: semver
   with:
     source: https://nuget.pkg.github.com/<ORG>/index.json
+    configfile: ${{ github.workspace }}/src/nuget.config
     solution: ${{ env.SOLUTION_PATH }}
     isDefaultBranch: false
     versionSuffix: ${{ github.ref }}

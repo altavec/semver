@@ -7,13 +7,17 @@ import {exec} from '@actions/exec'
 async function run(): Promise<void> {
   try {
     // install semver
-    const installArgs = ['tool', 'install', '-g', 'altavec.semanticversioning']
+    const installArgs = ['tool', 'install', '-g', 'Altavec.SemanticVersioning']
     if (Inputs.toolVersion) {
       installArgs.push('--version', Inputs.toolVersion)
     }
 
     if (Inputs.source) {
       installArgs.push('--add-source', Inputs.source)
+    }
+
+    if (Inputs.configfile) {
+      installArgs.push('--configfile', Inputs.configfile)
     }
 
     const exitCode = await exec('dotnet', installArgs, {ignoreReturnCode: true})

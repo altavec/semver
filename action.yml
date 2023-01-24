@@ -4,6 +4,8 @@ author: 'Altavec'
 inputs:
   source:
     description: 'The NuGet source that contains the tool as well as the packges to be versioned.'
+  configfile:
+    description: 'The NuGet configuration file to use.'
   toolVersion:
     description: 'The version of the semantic version dotnet CLI tool to install and use. If not specified, the default is the latest stable version.'
   solution:

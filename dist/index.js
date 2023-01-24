@@ -48,12 +48,15 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             // install semver
-            const installArgs = ['tool', 'install', '-g', 'altavec.semanticversioning'];
+            const installArgs = ['tool', 'install', '-g', 'Altavec.SemanticVersioning'];
             if (settings_1.Inputs.toolVersion) {
                 installArgs.push('--version', settings_1.Inputs.toolVersion);
             }
             if (settings_1.Inputs.source) {
                 installArgs.push('--add-source', settings_1.Inputs.source);
+            }
+            if (settings_1.Inputs.configfile) {
+                installArgs.push('--configfile', settings_1.Inputs.configfile);
             }
             const exitCode = yield (0, exec_1.exec)('dotnet', installArgs, { ignoreReturnCode: true });
             if (exitCode > 1) {
@@ -138,6 +141,10 @@ class Inputs {
     // install arguments
     static get source() {
         const result = core.getInput('source');
+        return result === '' || result === null ? undefined : result;
+    }
+    static get configfile() {
+        const result = core.getInput('configfile');
         return result === '' || result === null ? undefined : result;
     }
     static get toolVersion() {

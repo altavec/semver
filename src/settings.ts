@@ -7,6 +7,11 @@ export class Inputs {
     return result === '' || result === null ? undefined : result
   }
 
+  static get configfile(): string | undefined {
+    const result = core.getInput('configfile')
+    return result === '' || result === null ? undefined : result
+  }
+
   static get toolVersion(): string | undefined {
     const result = core.getInput('toolVersion')
     return result === '' || result === null ? undefined : result

@@ -62,4 +62,9 @@ export class Inputs {
     const result = core.getInput('packageIdReplace')
     return result === '' || result === null ? 'Mondo' : result
   }
+
+  static get workingDirectory(): string | undefined {
+    const result = core.getInput('workingDirectory')
+    return result === '' || result === null ? undefined : result
+  }
 }

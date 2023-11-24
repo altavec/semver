@@ -24,6 +24,8 @@ inputs:
   packageIdReplace:
     description: 'The text used to replace the match from packageIdRegex'
     default: 'Mondo'
+  workingDirectory:
+    description: 'The working directory to operate in'
 runs:
   using: 'node16'
   main: 'dist/index.js'

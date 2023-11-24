@@ -21,6 +21,7 @@ All inputs are optional.
 | `increment`        | 'Patch'                | Sets the location for the version increment. Can be either `Patch` to increment the patch value, or `ReleaseLabel` to increment the release label. Only valid for version >= 1.0.82 |
 | `packageIdRegex`   | 'Altavec'              | The regular expression to match in the package id |
 | `packageIdReplace` | 'Mondo'                | The text used to replace the match from `packageIdRegex` |
+| `workingDirectory` | null                   | The working directory to operate in. Only valid for version >= 2.2.0 |
 
 ## Outputs
 
@@ -46,6 +47,7 @@ All inputs are optional.
     increment: ReleaseLabel
     packageIdRegex: Altavec
     packageIdReplace: Mondo
+    workingDirectory: ${{ github.workspace }}
 - run: echo 'Version: ${{ steps.semver.outputs.Version }}'
 ```
 

@@ -6,6 +6,11 @@ import {exec} from '@actions/exec'
 
 async function run(): Promise<void> {
   try {
+    if (Inputs.workingDirectory) {
+      core.info(`changing directory to ${Inputs.workingDirectory}`)
+      process.chdir(Inputs.workingDirectory)
+    }
+
     // install semver
     const installArgs = ['tool', 'install', '-g', 'Altavec.SemanticVersioning']
     if (Inputs.toolVersion) {

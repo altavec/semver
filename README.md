@@ -1,9 +1,10 @@
-# GitHub Action for Semantic Versioning, Version 2
+# GitHub Action for Semantic Versioning, Version 3
 
 [![GitHub Actions status](https://github.com/altavec/semver/workflows/build-test/badge.svg)](https://github.com/altavec/semver/actions)
 
 This action installs the CLI for [Altvec.SemanticVersioning](https://github.com/altavec/SemanticVersioning) and exposes version data from it as action outputs.
 
+The main change from version 2 to version 3 is updating the NODE version to 18.
 The main change from version 1 to version 2 is installing and using `Altavec.SemanticVersioning` rather than `Mondo.SemanticVersioning`.
 
 ## Inputs

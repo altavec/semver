@@ -27,5 +27,5 @@ inputs:
   workingDirectory:
     description: 'The working directory to operate in'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'

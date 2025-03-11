@@ -52,13 +52,26 @@ jobs:
       - name: Checkout
         id: checkout
         uses: actions/checkout@v4
+        
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Test Local Action
         id: test-action
         uses: ./
         with:
-          milliseconds: 2000
+          solution: ${{ env.SOLUTION_PATH }}
+          isDefaultBranch: false
+          versionSuffix: ${{ github.ref }}
+          increment: ReleaseLabel
+          packageIdRegex: Altavec
+          packageIdReplace: Mondo
+          workingDirectory: ${{ github.workspace }}
 
       - name: Print Output
         id: output
-        run: echo "${{ steps.test-action.outputs.time }}"
+        run: echo "${{ steps.test-action.outputs.Version }}"

@@ -58,11 +58,11 @@ All inputs are optional.
 ## Creating new version
 
 Details on versioning can be found here:
-https://github.com/actions/toolkit/blob/main/docs/action-versioning.md Create a
-new release using the UI. Version format should be `v2.x.x`. Creating a new
-major version requires reaction from users and should be done only with breaking
-changes. Once the new release is created, the v2 tag needs to be updated as
-well.
+[Action Versioning](https://github.com/actions/toolkit/blob/main/docs/action-versioning.md)
+Create a new release using the UI. Version format should be `v2.x.x`. Creating a
+new major version requires reaction from users and should be done only with
+breaking changes. Once the new release is created, the v2 tag needs to be
+updated as well.
 
 ```
 git tag -fa v2 -m "Update v2 tag"

@@ -47,6 +47,10 @@ jobs:
   test-action:
     name: GitHub Actions Test
     runs-on: ubuntu-latest
+    env:
+      EXAMPLE_ROOT: ${{github.workspace}}/__examples__
+      TOOL_PATH: ${{github.workspace}}/__examples__/ExampleTool
+      SOLUTION_PATH: ${{github.workspace}}/__examples__/ExampleLibrary/ExampleLibrary.csproj
 
     steps:
       - name: Checkout
@@ -56,21 +60,28 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          source-url: https://nuget.pkg.github.com/altavec/index.json
+          dotnet-version: 9.0.x
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pack tool
+        run: dotnet pack ${{ env.TOOL_PATH }}
+
+      - name: Build example
+        run: dotnet build ${{ env.SOLUTION_PATH  }}
 
       - name: Test Local Action
         id: test-action
         uses: ./
         with:
-          solution: ${{ env.SOLUTION_PATH }}
+          source: ${{ env.TOOL_PATH }}/bin/Release
+          solution: ${{ env.SOLUTION_PATH  }}
           isDefaultBranch: false
           versionSuffix: ${{ github.ref }}
           increment: ReleaseLabel
           packageIdRegex: Altavec
           packageIdReplace: Mondo
-          workingDirectory: ${{ github.workspace }}
+          workingDirectory: ${{ env.EXAMPLE_ROOT }}
 
       - name: Print Output
         id: output

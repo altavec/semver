@@ -27,8 +27,7 @@ describe('@actions/semver', () => {
   })
 
   afterEach(() => {
-    for (const key in testEnvVars)
-      Reflect.deleteProperty(testEnvVars, key)
+    for (const key in testEnvVars) Reflect.deleteProperty(testEnvVars, key)
   })
 
   it('gets an input', () => {

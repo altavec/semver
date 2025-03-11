@@ -52,11 +52,11 @@ jobs:
       - name: Checkout
         id: checkout
         uses: actions/checkout@v4
-        
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+          source-url: https://nuget.pkg.github.com/altavec/index.json
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

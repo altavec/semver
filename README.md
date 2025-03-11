@@ -64,7 +64,7 @@ new major version requires reaction from users and should be done only with
 breaking changes. Once the new release is created, the v2 tag needs to be
 updated as well.
 
-```
+```bash
 git tag -fa v2 -m "Update v2 tag"
 git push origin v2 --force
 ```

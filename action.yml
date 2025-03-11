@@ -17,8 +17,8 @@ inputs:
     description: The NuGet configuration file to use.
   toolVersion:
     description:
-      The version of the semantic version dotnet CLI tool to install and use. If
-      not specified, the default is the latest stable version.
+      The version of the semantic version dotnet command-line tool to install
+      and use. If not specified, the default is the latest stable version.
   solution:
     description: The path to the solution
   isDefaultBranch:
@@ -28,7 +28,7 @@ inputs:
     default: false
   versionSuffix:
     description:
-      Sets the pre-release value. If none is specified, the pre-release from the
+      Sets the prerelease value. If none is specified, the prerelease from the
       previous version is used.
   increment:
     description:
@@ -37,7 +37,7 @@ inputs:
       Only valid for version >= 1.0.82
     default: Patch
   packageIdRegex:
-    description: The regular expression to match in the package id
+    description: The regular expression to match in the package ID
     default: Altavec
   packageIdReplace:
     description: The text used to replace the match from packageIdRegex

@@ -1,10 +1,10 @@
 import * as core from '@actions/core'
 import * as os from 'os'
 import * as path from 'path'
-import {Inputs} from './settings'
-import {exec} from '@actions/exec'
+import { Inputs } from './settings.js'
+import { exec } from '@actions/exec'
 
-async function run(): Promise<void> {
+export async function run(): Promise<void> {
   try {
     if (Inputs.workingDirectory) {
       core.info(`changing directory to ${Inputs.workingDirectory}`)
@@ -25,7 +25,9 @@ async function run(): Promise<void> {
       installArgs.push('--configfile', Inputs.configfile)
     }
 
-    const exitCode = await exec('dotnet', installArgs, {ignoreReturnCode: true})
+    const exitCode = await exec('dotnet', installArgs, {
+      ignoreReturnCode: true
+    })
     if (exitCode > 1) {
       throw new Error('dotnet tool install failed.')
     }
@@ -85,7 +87,8 @@ async function run(): Promise<void> {
       core.setOutput(name, versionProperties[name])
     }
   } catch (error) {
-    core.setFailed(error.message)
+    // Fail the workflow run if an error occurs
+    if (error instanceof Error) core.setFailed(error.message)
   }
 }
 

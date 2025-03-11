@@ -1,4 +1,4 @@
-import {Inputs} from '../src/settings'
+import { Inputs } from '../src/settings.js'
 
 describe('@actions/semver', () => {
   beforeEach(() => {

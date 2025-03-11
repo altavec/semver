@@ -1,31 +1,55 @@
-name: 'semver'
-description: 'Installs and runs the Altavec SemanticVersion tool'
-author: 'Altavec'
+name: semver
+description: Installs and runs the Altavec SemanticVersion tool
+author: Altavec
+
+# Add your action's branding here. This will appear on the GitHub Marketplace.
+branding:
+  icon: heart
+  color: red
+
+# Define your inputs here.
 inputs:
   source:
-    description: 'The NuGet source that contains the tool as well as the packges to be versioned.'
+    description:
+      The NuGet source that contains the tool as well as the packges to be
+      versioned.
   configfile:
-    description: 'The NuGet configuration file to use.'
+    description: The NuGet configuration file to use.
   toolVersion:
-    description: 'The version of the semantic version dotnet CLI tool to install and use. If not specified, the default is the latest stable version.'
+    description:
+      The version of the semantic version dotnet CLI tool to install and use. If
+      not specified, the default is the latest stable version.
   solution:
-    description: 'The path to the solution'
+    description: The path to the solution
   isDefaultBranch:
-    description: 'Whether the current branch is the default branch. Forces there to be no version suffix. This overrides versionSuffix.'
-    default: 'false'
+    description:
+      Whether the current branch is the default branch. Forces there to be no
+      version suffix. This overrides versionSuffix.
+    default: false
   versionSuffix:
-    description: 'Sets the pre-release value. If none is specified, the pre-release from the previous version is used.'
+    description:
+      Sets the pre-release value. If none is specified, the pre-release from the
+      previous version is used.
   increment:
-    description: 'Sets the location for the version increment. Can be either Patch to increment the patch value, or ReleaseLabel to increment the release label. Only valid for version >= 1.0.82'
-    default: 'Patch'
+    description:
+      Sets the location for the version increment. Can be either Patch to
+      increment the patch value, or ReleaseLabel to increment the release label.
+      Only valid for version >= 1.0.82
+    default: Patch
   packageIdRegex:
-    description: 'The regular expression to match in the package id'
-    default: 'Altavec'
+    description: The regular expression to match in the package id
+    default: Altavec
   packageIdReplace:
-    description: 'The text used to replace the match from packageIdRegex'
-    default: 'Mondo'
+    description: The text used to replace the match from packageIdRegex
+    default: Mondo
   workingDirectory:
-    description: 'The working directory to operate in'
+    description: The working directory to operate in
+
+# Define your outputs here.
+outputs:
+  versionJson:
+    description: The JSON containing the versions
+
 runs:
-  using: 'node20'
-  main: 'dist/index.js'
+  using: node20
+  main: dist/index.js

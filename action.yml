@@ -43,12 +43,17 @@ inputs:
     description: The text used to replace the match from packageIdRegex
     default: Mondo
   workingDirectory:
-    description: The working directory to operate in
+    description:
+      The working directory to operate in. Only valid for version >= 2.2.0
 
 # Define your outputs here.
 outputs:
-  versionJson:
-    description: The JSON containing the versions
+  Version:
+    description: The full representation of the version include metadata
+  VersionPrefix:
+    description: The four integer version
+  versionSuffix:
+    description: The metadata version
 
 runs:
   using: node20

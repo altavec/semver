@@ -24,12 +24,11 @@ describe('@actions/semver', () => {
   beforeEach(() => {
     for (const key in testEnvVars)
       process.env[key] = testEnvVars[key as keyof typeof testEnvVars]
-
-    process.stdout.write = jest.fn()
   })
 
   afterEach(() => {
-    for (const key in testEnvVars) Reflect.deleteProperty(testEnvVars, key)
+    for (const key in testEnvVars)
+      Reflect.deleteProperty(testEnvVars, key)
   })
 
   it('gets an input', () => {
